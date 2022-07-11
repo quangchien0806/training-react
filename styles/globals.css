@@ -17,3 +17,10 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.__next p {
+  margin-bottom: 15px;
+}
+.__next img {
+  width: 50%;
+}

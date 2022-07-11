@@ -11,7 +11,7 @@ interface Props {
 }
 
 export default function index({ post }: Props) {
-  console.log(post);
+  // console.log(post);
 
   return <div>index</div>;
 }
@@ -22,7 +22,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   );
 
   const post = await response.json();
-  console.log(post);
+  // console.log(post);
   return {
     props: {
       post,

@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
-import Blog from "../Components/Blog";
+import styles from "../styles/Home.module.scss";
+import BlogT from "../Components/BlogT";
 
 const Home: NextPage = () => {
   return (
@@ -13,7 +13,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className="App">
-        <Blog />
+        <BlogT />
       </main>
     </div>
   );

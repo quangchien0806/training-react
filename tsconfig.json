@@ -19,7 +19,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "Components/Title.jsx",
+    "Components/Title.tsx",
     "pages/detail"
   ],
   "exclude": ["node_modules"]

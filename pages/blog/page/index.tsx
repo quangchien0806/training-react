@@ -1,47 +1,42 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
-import Title from "../../Components/Title";
+import Title from "../../../Components/Title";
+import Nav from "../../nav/nav";
 
-import blog from "./[blog]";
+// interface Title {
+//   rendered: string;
+// }
 
-interface Title {
-  rendered: string;
-}
+// interface Acf {
+//   avtq: string;
+// }
+// interface Post {
+//   id: number;
+//   acf: Acf;
+//   title: Title;
+//   slug: string;
+// }
 
-interface Acf {
-  avtq: string;
-}
-interface Post {
-  id: number;
-  acf: Acf;
-  title: Title;
-  slug: string;
-}
-
-interface Data {
-  id: number;
-  slug: string;
-  name: string;
-}
+// interface Data {
+//   id: number;
+//   slug: string;
+//   name: string;
+// }
 interface Props {
-  posts: Post[];
-  datas: Data[];
+  // posts: Post[];
+  // datas: Data[];
+  posts: any[];
+  datas: any[];
 }
 
-export default function index({ datas, posts }: Props) {
-  console.log(datas, posts);
+export default function index({ posts, datas }: Props) {
+  console.log(posts);
+  const router = useRouter();
   return (
     <div className="max-w-[1230px] mx-auto">
       <Title></Title>
-      <div className="flex">
-        {datas.map((data) => (
-          <div key={data.id}>
-            <Link href={`/blog/${data.slug}`}>
-              <button className="p-3 ml-3">{data.name}</button>
-            </Link>
-          </div>
-        ))}
-      </div>
+      <Nav datas={datas} />
       <div className="grid grid-cols-3 gap-5">
         {posts.map((post) => (
           <div key={post.id} className="rounded-lg shadow-lg">
@@ -67,10 +62,10 @@ export default function index({ datas, posts }: Props) {
 }
 export async function getStaticProps() {
   const response = await fetch(
-    "https://api.gcosoftware.vn/wp-json/wp/v2/posts?search=web&per_page=10&page=1"
+    "https://api.gcosoftware.vn/wp-json/wp/v2/posts?search=web&per_page=12&page=1"
   );
   const res = await fetch(
-    "https://api.gcosoftware.vn/wp-json/wp/v2/categories"
+    "https://api.gcosoftware.vn/wp-json/wp/v2/categories?lang=vi"
   );
   const data = await response.json();
   const post = await res.json();

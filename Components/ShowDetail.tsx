@@ -1,6 +1,5 @@
 import React from "react";
 import { IPost } from "../collections";
-import styles from "../styles/globals";
 
 interface Props {
   slug: IPost[];

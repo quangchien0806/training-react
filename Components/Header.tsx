@@ -4,7 +4,6 @@ import logo from "../public/logo.svg";
 import DownHeader from "../public/Downheader.svg";
 import Link from "next/link";
 
-
 export default function Header() {
   return (
     <>
@@ -29,7 +28,7 @@ export default function Header() {
                 <a href="#">Về chúng tôi</a>
               </li>
               <li className="text-blue-600 ml-[41px] text-xl">
-                <Link href="/blog">Blog</Link>
+                <Link href="/blog/page">Blog</Link>
               </li>
               <li className="ml-[41px] text-xl">
                 <a href="#">Tuyển dụng</a>

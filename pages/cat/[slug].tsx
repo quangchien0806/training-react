@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next/types";
 import React from "react";
 import FromShear from "../../Components/FromShear";
-import Blog from "../blogs";
+import BlogList from "../blogList";
 
 import Nav from "../nav/nav";
 
@@ -14,7 +14,7 @@ interface Props {
 export default function index({ posts, name, datas }: Props) {
   console.log(posts);
   return (
-    <div className="main-container">
+    <div className="main-container max-w-[1230px] mx-auto">
       <main>
         <section className="section page-hero">
           <div className="container-base">
@@ -36,7 +36,7 @@ export default function index({ posts, name, datas }: Props) {
               <FromShear />
               <Nav datas={datas} />
             </div>
-            <Blog posts={posts} />
+            <BlogList posts={posts} />
           </div>
         </section>
       </main>
@@ -52,11 +52,12 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   const posts = await fetch(
     `https://api.gcosoftware.vn/wp-json/wp/v2/posts?lang=vi&per_page=12&page=1&categories=${categoryId.id}`
   );
+  const res = await posts.json();
 
   return {
     props: {
       datas: response,
-      posts,
+      posts: res,
       name: categoryId.name,
     },
   };
